@@ -1,0 +1,158 @@
+[{
+ "creationDate": "2018-08-15T15:34:49.423Z",
+ "editCount": 0,
+ "postId": 11,
+ "id": 1,
+ "userId": 4,
+ "text": "With a little luck.. `enliten`, `ipedler`, `qprof` and `realtorcomlocator` could be dead by the end of the year."
+}, {
+ "creationDate": "2018-08-16T16:00:35.833Z",
+ "editCount": 0,
+ "postId": 16,
+ "id": 2,
+ "replyToUserId": 4,
+ "userId": 3,
+ "text": "This is solid, although I think a little more color on how to run the data population tools could be useful, for new people and those of us who haven't messed with Go much. Although to @ShawnRancatore's point, this might be deprecated soon-ish anyways."
+}, {
+ "creationDate": "2018-08-21T18:12:28.733Z",
+ "editCount": 0,
+ "postId": 21,
+ "id": 3,
+ "userId": 5,
+ "text": "This is super useful! Would you mind elaborating on `Push the newly added images to github` ?"
+}, {
+ "creationDate": "2018-08-21T18:13:24.260Z",
+ "editCount": 0,
+ "postId": 21,
+ "id": 4,
+ "userId": 5,
+ "text": "Also if it helps clarify, the reason we reference images with `/static/` locally is because we're serving the `/app/images` folder out of it with this LoC: https://github.com/nicheinc/Website/blob/4d65763da774bec8e8fe78aad57da8d48681ebcb/server/server.js#L163"
+}, {
+ "creationDate": "2018-08-21T18:23:02.830Z",
+ "editCount": 0,
+ "postId": 23,
+ "id": 5,
+ "userId": 4,
+ "text": "Also, be careful to mind the distribution ratio.. if it is 25%/75% split it's probably about total _mobile_ views.. so you will need a clone of the component under test that only shows on mobile and THEN splits to the test variation."
+}, {
+ "creationDate": "2018-08-21T18:58:29.183Z",
+ "editCount": 0,
+ "postId": 21,
+ "id": 6,
+ "userId": 8,
+ "text": "We need to push the images to github so that Joe will have access to them. I guess the alternative would be to give him an address to the images in the design repo? but then, `/app/images/` and `/CDN/static/` would not be in sync."
+}, {
+ "creationDate": "2018-08-23T12:11:51.997Z",
+ "editCount": 0,
+ "postId": 21,
+ "id": 7,
+ "userId": 9,
+ "text": "Yeah, I can grab the images from anywhere and I have grabbed them from the Design repo in the past but I think that lead to confusion with `/app/images/` as you said"
+}, {
+ "creationDate": "2018-09-20T18:15:58.160Z",
+ "editCount": 3,
+ "postId": 19,
+ "id": 8,
+ "deletionUserId": 16,
+ "deletionDate": "2018-09-20T18:21:51.190Z",
+ "userId": 16,
+ "text": "to add to this: go get commands didn't work for me until I stored github credentials. I'm pretty against it since it stores your credentials locally in plaintext but using ssh or hoping to get asked for a password didn't work for me.To do so I did:  $ git config credential.helper store$ git pull (any repo)Username for 'https://github.com': <USERNAME>Password for 'https://USERNAME@github.com': <PASSWORD>The above permanently stores your credentials in your git config file.To cache:git config --global credential.helper \"cache --timeout 1800\" (30 min)Personally I'm deleting the file afterwards"
+}, {
+ "creationDate": "2018-09-20T18:56:10.997Z",
+ "editCount": 0,
+ "postId": 19,
+ "id": 9,
+ "userId": 16,
+ "text": "after getting MSSQL credentials the db connection string that was needed and worked for me was `./enliten -db \"user id=aporras; password=password; server=DEVVM-SQL;\"`"
+}, {
+ "creationDate": "2018-09-25T15:34:31.777Z",
+ "editCount": 1,
+ "postId": 38,
+ "id": 10,
+ "score": 2,
+ "userId": 14,
+ "text": "Putting `export GIT_TERMINAL_PROMPT=1` in your .bashrc will force git to prompt for credentials, even when run via `go get`. Alternatively, use a secure credential helper, like libsecret on Linux: `git config --global credential.helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret`"
+}, {
+ "creationDate": "2018-12-18T20:07:05.163Z",
+ "editCount": 0,
+ "postId": 72,
+ "id": 11,
+ "score": 1,
+ "userId": 8,
+ "text": "I recommend giving docker 4GB instead of the default 2GB on mac. I had a few timeouts at first, and the 4GB was noticeably faster."
+}, {
+ "creationDate": "2019-01-10T20:46:25.550Z",
+ "editCount": 0,
+ "postId": 63,
+ "id": 12,
+ "userId": 8,
+ "text": "We are regularly updating RNN now and not having problems (currently at v2.5.1)"
+}, {
+ "creationDate": "2019-01-16T20:13:17.413Z",
+ "editCount": 0,
+ "postId": 75,
+ "id": 13,
+ "deletionUserId": 8,
+ "deletionDate": "2019-01-16T20:13:48.623Z",
+ "userId": 8,
+ "text": "http://www.niche.com/account/passwordReset/perform?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJuaWNoZS5jb20iLCJleHAiOjE1NDc3MzExNDEsImlhdCI6MTU0NzY0NDc0MSwic3ViIjoiZWMwYjc3NzAtNGMxOC00NWQzLWEyYjctNzRlZTZmYmFkYjg3Iiwic2NvcGUiOiJwYXNzd29yZC1yZXNldCJ9.P5y54fiFRdFKA8f1H0Oe2T9les5bXNG7BFh9o4RZYZzV8Tm91LewtP7L1s8yFgSVaew3Z8BM-v-71R8pTtujEm9kUD8D63Ny7rSE84XF3tIdvtDQ4etXEMbc0Yytk31uf1coQetrspXvsB0GdmiXPrBiCjVlJr4-NceppXW2tfU That is what the url looks like from the link in the email"
+}, {
+ "creationDate": "2019-01-17T13:55:02.850Z",
+ "editCount": 0,
+ "postId": 78,
+ "id": 14,
+ "userId": 8,
+ "text": "If you are in a website pr sometime, can you add a comment to buildURL that just says what the valid args are?"
+}, {
+ "creationDate": "2019-01-17T14:03:16.567Z",
+ "editCount": 0,
+ "postId": 78,
+ "id": 15,
+ "replyToUserId": 8,
+ "userId": 3,
+ "text": "@SpencerKingman Yea, definitely 👍"
+}, {
+ "creationDate": "2019-02-05T14:14:49.630Z",
+ "editCount": 0,
+ "postId": 82,
+ "id": 16,
+ "deletionUserId": 3,
+ "deletionDate": "2019-02-05T14:15:01.370Z",
+ "userId": 3,
+ "text": "Ideally we're only referencing the `window` on client-side code (e.g. if it's just in an onClick`, it normally wouldn't matter or apply to server side code), but it's usually due to the desire to have comprehensive unit tests that we mock things in the code."
+}, {
+ "creationDate": "2019-02-05T14:17:38.287Z",
+ "editCount": 3,
+ "postId": 82,
+ "id": 17,
+ "userId": 3,
+ "text": "Ideally we're only referencing the `window` on client-side code (e.g. if it's just in an `onClick`, it normally wouldn't matter or apply to server side code), but it's usually due to A) needing to mock things in the source code for tests and B) when referencing those globals in stateless functional components. It would probably make for a good situp topic to discuss standardizing how we do it, whether we pull `window` from some kind of constant _a la_ `env-utils` or do it on the fly. Centralizing it would mean that the awkward mocking would at least be isolated."
+}, {
+ "creationDate": "2019-04-05T13:15:11.483Z",
+ "editCount": 0,
+ "postId": 67,
+ "id": 18,
+ "userId": 8,
+ "text": "NOTE: We no longer use TS LINT"
+}, {
+ "creationDate": "2019-05-15T15:58:56.973Z",
+ "editCount": 1,
+ "postId": 89,
+ "id": 19,
+ "userId": 3,
+ "text": "Or maybe moving toward```if (!['development', 'test'].includes(process.env.NODE_ENV)) {        require('newrelic')}```might be better? Would want to run that by the rest of FE, though."
+}, {
+ "creationDate": "2019-07-12T14:13:35.283Z",
+ "editCount": 0,
+ "postId": 80,
+ "id": 20,
+ "userId": 8,
+ "text": "I don't use this one anymore."
+}, {
+ "creationDate": "2019-07-26T13:26:09.820Z",
+ "editCount": 0,
+ "postId": 97,
+ "id": 21,
+ "userId": 8,
+ "text": "If we do A, do we just get `[ Object ]` in the log?"
+}]
